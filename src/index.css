@@ -1,0 +1,117 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-cream text-chocolate-dark antialiased;
+    font-family: 'Outfit', sans-serif;
+  }
+
+  /* Custom Premium Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #FFF8F0;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #4A2C2A;
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #FF5C8A;
+  }
+}
+
+@layer utilities {
+  /* Glassmorphism effects */
+  .glass-card {
+    background: rgba(255, 248, 240, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(74, 44, 42, 0.08);
+  }
+
+  .glass-card-dark {
+    background: rgba(42, 22, 21, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 248, 240, 0.1);
+  }
+
+  .glass-nav {
+    background: rgba(255, 248, 240, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(74, 44, 42, 0.06);
+  }
+
+  .text-glow-pink {
+    text-shadow: 0 0 10px rgba(255, 92, 138, 0.3);
+  }
+
+  .text-glow-gold {
+    text-shadow: 0 0 10px rgba(255, 183, 3, 0.3);
+  }
+}
+
+/* Custom layout reset for default Vite templates */
+#root {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  text-align: left !important;
+  border-inline: none !important;
+  min-height: auto !important;
+  display: block !important;
+  box-sizing: border-box !important;
+}
+
+/* Custom premium ambient backgrounds */
+.bg-cream-gradient {
+  background: radial-gradient(circle at top left, #FFFDFB 0%, #FFF8F0 60%, #F5EAE0 100%);
+}
+
+.bg-chocolate-gradient {
+  background: linear-gradient(135deg, #4A2C2A 0%, #2D1B1A 100%);
+}
+
+/* Masonry grid helper classes */
+.masonry-grid {
+  display: flex;
+  margin-left: -16px; /* gutter size offset */
+  width: auto;
+}
+.masonry-grid_column {
+  padding-left: 16px; /* gutter size */
+  background-clip: padding-box;
+}
+
+/* Hover shine effect */
+.hover-shine {
+  position: relative;
+  overflow: hidden;
+}
+.hover-shine::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 30%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.25);
+  transform: rotate(30deg);
+  transition: all 0.6s ease;
+  opacity: 0;
+}
+.hover-shine:hover::after {
+  left: 130%;
+  opacity: 1;
+}
